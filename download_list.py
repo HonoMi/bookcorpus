@@ -164,8 +164,10 @@ def main():
                 author = ''
 
             # get epub
-            epub_links = soup.find_all(
-                title="Nook, Kobo, Sony Reader, and tablets")
+            epub_links = soup.find_all(    # TODO: This selector is vulnerable to the change of web site.
+                title='Supported by many apps and devices (e.g., Apple Books, Barnes and Noble Nook, Kobo, Google Play, etc.)')
+            # epub_links = soup.find_all(
+            #     title="Nook, Kobo, Sony Reader, and tablets")
             if epub_links:
                 epub_url = epub_links[0].get('href')
                 if epub_url:
